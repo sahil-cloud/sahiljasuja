@@ -99,7 +99,7 @@ function About() {
                 />
               </h1>
               <button className="text-red-300 " onClick={speak1}>
-                Let My assistant describe
+                Let My assistant describe me
               </button>
               <hr />
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">

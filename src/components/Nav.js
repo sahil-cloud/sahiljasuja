@@ -3,8 +3,9 @@ import { RESUME_URL } from '../data/profile';
 
 const items = [
   ['#top', 'Home'],
-  ['#experience', 'Experience'],
+  ['#about', 'About'],
   ['#highlights', 'Engineering Highlights'],
+  ['#experience', 'Experience'],
   ['#projects', 'Projects'],
   ['#skills', 'Skills'],
   ['#education', 'Education'],

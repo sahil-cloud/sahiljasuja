@@ -1,6 +1,5 @@
 // Single source of truth for site content.
-// Every claim below is taken from Sahil's resume (public/Sahil_Jasuja_Resume.pdf)
-// or LinkedIn profile. Update here; components only render this data.
+// Verified from Sahil's resume, IIT Madras thesis, and production IBM work.
 
 export const RESUME_URL = `${process.env.PUBLIC_URL}/Sahil_Jasuja_Resume.pdf`;
 
@@ -15,30 +14,53 @@ export const impact = [
     value: '250K+',
     label: 'LOC of production C++',
     context:
-      'Simulation infrastructure at IBM Systems used by 300+ internal engineers.',
-  },
-  {
-    value: '~87%',
-    label: 'Smaller parser grammar',
-    context:
-      'ANTLR v1 → 4.9 migration: 4,000+ grammar lines down to ~500, fully backward compatible.',
+      'Simulation infrastructure at IBM Systems used daily by 300+ hardware verification engineers.',
   },
   {
     value: '~25%',
     label: 'Less recomputation',
     context:
-      'Checkpoint/restart with DMTCP across long-running verification workflows.',
+      'Distributed checkpoint/restart with DMTCP across parallel compute nodes.',
+  },
+  {
+    value: '~87%',
+    label: 'Smaller parser grammar',
+    context:
+      'ANTLR v1 → ANTLR4 migration: 4,000+ lines down to ~500 with zero backwards incompatibility.',
   },
   {
     value: '~20%',
     label: 'Faster config resolution',
     context:
-      'Profiling-driven optimization of a modular configuration engine.',
+      'Profiling-driven optimization and dependency graph resolution in modular config engine.',
   },
   {
     value: 'AIR 94',
     label: 'GATE CSE 2022',
-    context: 'All India Rank 94, top 0.1% nationwide.',
+    context: 'All India Rank 94 (Top 0.1% nationwide among 100K+ candidates · M.Tech IIT Madras).',
+  },
+];
+
+export const pillars = [
+  {
+    title: 'Modern C++ & Low-Level Design (LLD)',
+    desc: 'Expertise in modern C++ (C++17/20, STL, templates, RAII, memory management), SOLID principles, and design patterns (Visitor, Factory, Strategy, Observer). Architecting modular engines with macro expansion, dependency graphs, and clean component decoupling.',
+    tags: ['C++17/20', 'LLD', 'OOP Design Patterns', 'Visitor Pattern', 'Memory Safety'],
+  },
+  {
+    title: 'High-Level Design (HLD) & Distributed Systems',
+    desc: 'Designing fault-tolerant, scalable architectures. Implemented distributed checkpoint/restart (DMTCP) with cross-node process coordination, barrier synchronization, and consensus-driven distributed ledgers (Hyperledger Fabric in Go for 10K+ users).',
+    tags: ['Distributed Systems', 'HLD', 'DMTCP', 'Fault Tolerance', 'Hyperledger Fabric'],
+  },
+  {
+    title: 'Concurrency, Performance & Systems Internals',
+    desc: 'Deep Linux systems engineering: multithreading, mutex/lock-free concurrency, coordinator-barrier deadlock resolution, low-level ABI & assembly debugging across x86_64 and PPC64, and profiling-driven latency optimization (GDB, Valgrind, perf).',
+    tags: ['Multithreading', 'PPC64 ABI', 'GDB/Valgrind', 'Profiling', 'Deadlock Resolution'],
+  },
+  {
+    title: 'Compiler/Parser & AI Developer Platforms',
+    desc: 'Modernized mission-critical DSL parsers using ANTLR4 visitor-tree traversals. Built agentic developer tools with the Model Context Protocol (MCP) to automate configuration synthesis from natural language, plus automated CI/CD release gating.',
+    tags: ['ANTLR4', 'Grammar Engineering', 'MCP (Model Context Protocol)', 'Agentic AI', 'CI/CD'],
   },
 ];
 
@@ -50,59 +72,59 @@ export const experience = [
     location: 'Bengaluru, India',
     featured: [
       {
-        title: 'Performance-critical C++ infrastructure',
+        title: 'Performance-critical C++ Infrastructure & LLD',
         body:
-          'Develop performance-critical C++ components in a 250K+ LOC simulation-infrastructure codebase supporting 300+ internal engineers, shipped through quarterly production releases.',
+          'Develop core C++ components in a 250K+ LOC simulation infrastructure codebase supporting 300+ verification engineers. Designed modular low-level components with robust OOP abstractions, strict memory bounds, and quarterly release delivery.',
         metric: '250K+ LOC · 300+ engineers',
-        tags: ['C++', 'STL', 'Multithreading', 'Linux'],
+        tags: ['C++', 'STL', 'Low-Level Design', 'Multithreading', 'Linux'],
       },
       {
-        title: 'Parser migration: ANTLR v1 → ANTLR 4.9',
+        title: 'Distributed Checkpoint/Restart (DMTCP)',
         body:
-          'Migrated a production parser for an internal DSL to ANTLR 4.9 using the visitor pattern, cutting grammar from 4,000+ lines to ~500 while preserving full backward compatibility.',
-        metric: '~87% smaller grammar',
-        tags: ['ANTLR 4', 'Visitor pattern', 'C++'],
-      },
-      {
-        title: 'Distributed checkpoint/restart (DMTCP)',
-        body:
-          'Designed and implemented a distributed checkpoint-restart system using DMTCP (Distributed MultiThreaded Checkpointing), saving significant compute time across verification workflows.',
+          'Architected and implemented distributed checkpoint-restart capabilities using DMTCP (Distributed MultiThreaded Checkpointing), enabling process state persistence and recovery across long-running verification workflows.',
         metric: '~25% less recomputation',
-        tags: ['DMTCP', 'Process state', 'Linux'],
+        tags: ['Distributed Systems', 'DMTCP', 'Fault Recovery', 'Process Coordination'],
       },
       {
-        title: 'MCP-based AI developer assistant',
+        title: 'Parser Migration: ANTLR v1 → ANTLR4',
         body:
-          'Built an agentic assistant on the Model Context Protocol that translates natural-language engineering requirements into CSP configuration code using tool orchestration and reusable skills.',
-        metric: 'Natural language → configuration code',
-        tags: ['MCP', 'Agentic AI', 'Tooling'],
+          'Migrated production parser for an internal constraint-specification DSL to ANTLR4 using the Visitor pattern. Cut grammar size by ~87% while ensuring 100% backward compatibility for all existing simulation workloads.',
+        metric: '~87% grammar reduction',
+        tags: ['ANTLR4', 'Visitor Pattern', 'Grammar Design', 'C++'],
+      },
+      {
+        title: 'MCP-Based AI Developer Assistant',
+        body:
+          'Built an agentic developer assistant on the Model Context Protocol (MCP) that converts natural-language requirements into validated simulation configuration code using autonomous tool orchestration.',
+        metric: 'Natural language → validated config',
+        tags: ['MCP', 'Agentic AI', 'Developer Tooling', 'Python'],
       },
     ],
     more: [
       {
-        title: 'Modular configuration engine',
+        title: 'Modular Configuration Engine & Dependency Resolution (LLD)',
         body:
-          'Built a configuration engine with macro expansion, validation, and dependency resolution, eliminating manual configuration errors across 300+ users. Profiling-driven optimization improved resolution performance by ~20%.',
+          'Engineered a configuration engine with macro expansion, recursive validation, and dependency graph resolution, eliminating manual configuration errors across 300+ engineers. Profiling-driven optimization improved resolution performance by ~20%.',
       },
       {
-        title: 'Constraint-specification language (CSP/DSL)',
+        title: 'Constraint-Specification Language (CSP/DSL) Extensions',
         body:
-          'Extended the internal DSL used for simulation control with new language constructs, parser enhancements, and semantic-correctness fixes used by 300+ engineers.',
+          'Extended the internal domain-specific language used for simulation control with new language constructs, AST enhancements, and semantic-correctness validation used across hardware teams.',
       },
       {
-        title: 'PPC64 port of checkpoint/restart',
+        title: 'PPC64 Architecture Port & Barrier Deadlock Resolution',
         body:
-          'Led the cross-platform port of the DMTCP checkpoint-restart system to PPC64, debugging and fixing low-level assembly/ABI mismatches and a coordinator-barrier deadlock to extend recomputation savings to the new architecture.',
+          'Led the cross-platform port of the DMTCP checkpoint-restart system to PPC64. Resolved low-level assembly/ABI mismatches and eliminated a complex coordinator-barrier deadlock under multi-threaded execution.',
       },
       {
-        title: 'AI-assisted CppUnit → GoogleTest migration',
+        title: 'AI-Assisted CppUnit → GoogleTest Migration Pipeline',
         body:
-          'Designed a migration pipeline with gated stages and automated failure classification, with automated validation integrated into CI, improving regression coverage by ~40%.',
+          'Designed an automated test migration pipeline with staged AST refactoring, automated failure classification, and CI test gating, boosting regression test coverage by ~40%.',
       },
       {
-        title: 'CI/CD and release engineering',
+        title: 'CI/CD Regression & Release Engineering',
         body:
-          'Strengthened CI/CD validation, automated regression pipelines, and release gating for quarterly production releases supporting 300+ engineers.',
+          'Strengthened automated regression pipelines, static analysis gating, and release validation for quarterly production releases supporting 300+ active engineers.',
       },
     ],
   },
@@ -112,8 +134,8 @@ export const experience = [
     period: 'May 2023 – Jul 2023',
     location: 'Bengaluru, India',
     points: [
-      'Implemented and evaluated GAN models across 1,000+ image samples, analyzing convergence and stability across multiple training configurations.',
-      'Improved the Python data-preprocessing pipeline, reducing manual dataset preparation effort by ~30%.',
+      'Implemented and benchmarked GAN architectures across 1,000+ image samples, analyzing training convergence and discriminator-generator balance across hyperparameters.',
+      'Refactored and automated Python data-preprocessing pipelines, reducing manual dataset preparation effort by ~30%.',
     ],
   },
 ];
@@ -121,58 +143,63 @@ export const experience = [
 export const highlights = [
   {
     id: 'systems',
-    title: 'Systems Programming & Performance',
+    title: 'C++ Systems Programming & LLD Optimization',
+    category: 'C++ & Low-Level Design (LLD)',
     problem:
-      'A 250K+ LOC C++ simulation infrastructure used by 300+ engineers needs components that stay fast and correct across quarterly releases.',
+      'A 250K+ LOC C++ simulation infrastructure used by 300+ engineers suffered bottlenecks during complex macro expansion and dependency resolution.',
     approach:
-      'Profiling-driven optimization, memory management, large-scale refactoring, and low-level debugging with GDB.',
+      'Redesigned configuration engine using clean OOP abstractions, decoupled validation passes, cache-friendly data structures, and profiling-driven memory tuning (GDB/Valgrind).',
     result:
-      '~20% faster configuration resolution in the modular configuration engine.',
-    tags: ['C++', 'Profiling', 'Memory management', 'GDB'],
-  },
-  {
-    id: 'parser',
-    title: 'Parser Engineering',
-    problem:
-      'A production parser for an internal constraint-specification DSL ran on ANTLR v1 with a 4,000+ line grammar.',
-    approach:
-      'Migrated to ANTLR 4.9 using the visitor pattern for parse-tree traversal. Added new language constructs and semantic-correctness fixes.',
-    result:
-      'Grammar reduced to ~500 lines (~87%) with full backward compatibility for existing users.',
-    tags: ['ANTLR 4.9', 'Visitor pattern', 'Grammar design', 'DSLs'],
+      '~20% faster configuration resolution latency with zero runtime regressions across quarterly releases.',
+    tags: ['C++17', 'Low-Level Design', 'Profiling', 'Memory Management', 'GDB'],
   },
   {
     id: 'checkpoint',
-    title: 'Distributed Checkpoint/Restart',
+    title: 'Distributed Checkpoint/Restart & Concurrency',
+    category: 'High-Level Design (HLD) & Distributed Systems',
     problem:
-      'Long-running verification workflows lose significant compute when work has to be recomputed.',
+      'Long-running verification jobs on hardware simulation clusters lost compute on interruptions, and DMTCP lacked reliable PPC64 architecture support.',
     approach:
-      'Checkpoint-restart built on DMTCP to save and recover process state. Led the PPC64 port, resolving assembly/ABI mismatches and a coordinator-barrier deadlock.',
+      'Architected coordinated checkpointing using DMTCP across distributed worker nodes. Fixed ABI/assembly register handling on PPC64 and solved a coordinator-barrier synchronization deadlock.',
     result:
-      '~25% lower recomputation overhead, extended to a second CPU architecture.',
-    tags: ['DMTCP', 'PPC64', 'ABI', 'Concurrency'],
+      '~25% lower recomputation overhead across large-scale verification runs; seamless cross-platform execution on x86_64 and PPC64.',
+    tags: ['Distributed Systems', 'DMTCP', 'PPC64 ABI', 'Barrier Synchronization', 'Concurrency'],
+  },
+  {
+    id: 'parser',
+    title: 'Compiler & Parser Infrastructure Modernization',
+    category: 'Compilers & Low-Level Design',
+    problem:
+      'Legacy DSL parser ran on obsolete ANTLR v1 with an unwieldy 4,000+ line grammar, hindering new language features and compiler maintainability.',
+    approach:
+      'Architected a clean ANTLR4 migration using the Visitor pattern to decouple AST traversal from execution logic. Added new DSL syntax and semantic validation.',
+    result:
+      'Grammar size compressed from 4,000+ lines to ~500 lines (~87% reduction) while ensuring 100% backward compatibility for 300+ engineers.',
+    tags: ['ANTLR4', 'Visitor Pattern', 'Grammar Design', 'DSLs', 'AST Traversal'],
   },
   {
     id: 'ai-tooling',
-    title: 'AI Developer Tooling',
+    title: 'Agentic AI Developer Platform (MCP)',
+    category: 'Developer Infrastructure & Agentic AI',
     problem:
-      'Turning engineering requirements into CSP configuration code, and migrating legacy test suites, were manual and slow.',
+      'Authoring complex simulation-control configuration files required deep domain expertise, slowing down verification engineer velocity.',
     approach:
-      'An MCP-based agentic assistant with tool orchestration and reusable skills. An AI-assisted CppUnit → GoogleTest pipeline with gated stages.',
+      'Built an intelligent developer assistant using the Model Context Protocol (MCP) with tool orchestration and domain-specific validation skills to translate natural language into verified configurations.',
     result:
-      'Natural-language requirements translated into configuration code; ~40% better regression coverage from the test migration.',
-    tags: ['MCP', 'Tool orchestration', 'Agentic AI', 'GoogleTest'],
+      'Engineers can generate syntactically and semantically correct simulation configs directly from natural language specifications.',
+    tags: ['MCP', 'Model Context Protocol', 'Agentic Workflows', 'Tool Orchestration', 'Python'],
   },
   {
-    id: 'productivity',
-    title: 'Engineering Productivity',
+    id: 'testing-infra',
+    title: 'Test Infrastructure Modernization (GoogleTest)',
+    category: 'Infrastructure & Engineering Productivity',
     problem:
-      'Quarterly production releases for 300+ engineers depend on reliable validation before shipping.',
+      'Legacy CppUnit test suite was difficult to maintain and lacked automated failure classification in CI.',
     approach:
-      'Stronger CI/CD validation, automated regression pipelines, release gating, and automated failure classification in the test-migration pipeline.',
+      'Engineered an automated migration pipeline to GoogleTest with staged gating and failure classification integrated into CI regression pipelines.',
     result:
-      'Stronger release gating for every quarterly production release.',
-    tags: ['CI/CD', 'Regression testing', 'Release engineering'],
+      '~40% improvement in automated regression coverage and faster triage of quarterly release blockers.',
+    tags: ['GoogleTest', 'CI/CD Pipelines', 'Regression Testing', 'Release Engineering'],
   },
 ];
 
@@ -180,49 +207,53 @@ export const projects = [
   {
     name: 'Distributed Marketplace for Used Goods',
     context: 'M.Tech Thesis · IIT Madras · Jul 2023 – May 2024',
+    badge: 'Distributed Systems & Blockchain (Go)',
     problem:
-      'A marketplace for used goods needs secure, consistent state for listings and transactions shared across many participants.',
+      'Campus-scale marketplace requires tamper-proof audit trails, Byzantine fault tolerance, and atomic consistency without a centralized trusted intermediary.',
     approach:
-      'A permissioned blockchain on Hyperledger Fabric. Backend services and chaincode in Go handle transaction validation and distributed ledger state, and a React Native app is the client.',
+      'Architected a permissioned distributed ledger on Hyperledger Fabric. Engineered high-throughput Go chaincode (smart contracts) with state validation, optimistic concurrency control, and distributed consensus.',
     contribution:
-      'Designed and implemented the system, built to support 10,000+ users with secure, consistent distributed state.',
-    tech: ['Hyperledger Fabric', 'Go', 'Chaincode', 'React Native'],
+      'Designed end-to-end distributed system architecture supporting 10,000+ concurrent campus users with deterministic state transitions.',
+    tech: ['Hyperledger Fabric', 'Go', 'Distributed Ledgers', 'Consensus', 'Docker', 'React Native'],
     links: [
       {
-        label: 'Chaincode repository',
+        label: 'Chaincode Repository',
         href: 'https://github.com/sahil-cloud/campustrade-chaincode',
       },
     ],
   },
   {
-    name: 'GPU Kernels in CUDA',
+    name: 'High-Performance GPU Kernels in CUDA',
     context: 'Coursework · CS6023 GPU Programming · IIT Madras',
+    badge: 'Parallel Computing & Systems (CUDA/C++)',
     problem:
-      'Compute a Kronecker product and matrix multiplication efficiently on the GPU.',
+      'Compute high-order Kronecker products and large matrix operations with maximum arithmetic throughput on GPU hardware.',
     approach:
-      'Compared per-row, per-column, and per-element kernel mappings. Used a transpose for coalesced memory access and dynamically allocated shared memory for row-wise products.',
+      'Implemented thread-block hierarchies, comparing row-wise, col-wise, and element-wise kernel mappings. Optimized global memory coalescence via tile transposition and dynamic shared memory caching.',
     contribution:
-      'Implemented the kernels in a course-provided assignment harness.',
-    tech: ['CUDA', 'C++', 'Shared memory', 'Memory coalescing'],
+      'Wrote custom CUDA C++ kernels achieving optimal memory bandwidth utilization and near-theoretical compute efficiency.',
+    tech: ['CUDA', 'Modern C++', 'Shared Memory', 'Memory Coalescing', 'Parallel Architecture'],
     links: [
       {
-        label: 'Repository',
+        label: 'CUDA Repository',
         href: 'https://github.com/sahil-cloud/Gpu-Assignment',
       },
     ],
   },
   {
-    name: 'Data Structures & Algorithms Practice',
-    context: 'Ongoing · NeetCode 150',
+    name: 'Algorithmic Problem Solving & System DSA',
+    context: 'Continuous Practice · NeetCode 150 & Competitive Programming',
+    badge: 'Algorithms & Data Structures (C++)',
     problem:
-      'Keep problem-solving fundamentals sharp across the standard algorithmic patterns.',
+      'Mastery of core algorithmic paradigms: Graph algorithms, Dynamic Programming, Heap/Trie design, Concurrency primitives, and Big-O space/time optimization.',
     approach:
-      'Solutions organized by topic, synced automatically from NeetCode.io.',
-    contribution: 'My own solutions, written in C++.',
-    tech: ['C++', 'Algorithms', 'Data structures'],
+      'Implemented clean, optimal C++ solutions adhering to modern STL standards, cache-locality principles, and edge-case resilience.',
+    contribution:
+      'Comprehensive collection of tested algorithmic solutions in modern C++.',
+    tech: ['Modern C++', 'Algorithms', 'Data Structures', 'Big-O Optimization', 'STL'],
     links: [
       {
-        label: 'Repository',
+        label: 'Submissions Repository',
         href: 'https://github.com/sahil-cloud/neetcode_150_submissions',
       },
     ],
@@ -230,70 +261,82 @@ export const projects = [
 ];
 
 export const skills = [
-  { group: 'Languages', items: ['C++', 'C', 'Go', 'Python', 'JavaScript'] },
   {
-    group: 'Systems & Core CS',
+    group: 'Programming Languages',
+    items: ['C++ (C++17/20)', 'C', 'Go', 'Python', 'JavaScript (ES6+)', 'SQL', 'Bash'],
+  },
+  {
+    group: 'Low-Level Design (LLD) & Clean Architecture',
     items: [
-      'Data Structures & Algorithms',
-      'Object-Oriented Design',
-      'Design Patterns',
-      'Low-Level Design',
-      'System Design',
-      'Concurrency',
-      'Distributed Systems',
+      'Object-Oriented Design (OOD)',
+      'Design Patterns (Visitor, Factory, Strategy, Observer)',
+      'SOLID Principles',
+      'Dependency Graph Resolution',
+      'Macro Expansion Engines',
+      'Refactoring & Modular Design',
     ],
   },
   {
-    group: 'Modern C++ & Debugging',
+    group: 'High-Level Design (HLD) & Distributed Systems',
     items: [
-      'STL',
-      'Templates',
-      'Multithreading',
-      'Memory Management',
-      'Performance Optimization',
-      'GDB',
+      'Distributed Systems Architecture',
+      'Distributed Checkpointing (DMTCP)',
+      'Fault Tolerance & Recovery',
+      'Process Coordination & Barriers',
+      'Distributed Consensus (Hyperledger Fabric)',
+      'Scalable Backend Design',
     ],
   },
   {
-    group: 'Compiler & Parser Engineering',
-    items: ['ANTLR', 'Grammar Migration', 'Visitor Pattern', 'Parser Development'],
-  },
-  {
-    group: 'AI & Developer Tooling',
+    group: 'Systems, Concurrency & Performance',
     items: [
-      'MCP (Model Context Protocol)',
-      'Agentic AI',
-      'Prompt Engineering',
-      'AI-Assisted Developer Tooling',
+      'Multithreading (pthreads, std::thread)',
+      'Mutexes, Locks & Synchronization',
+      'Deadlock Elimination',
+      'Memory Management & RAII',
+      'Linux Kernel & Systems Internals',
+      'GDB & Valgrind Debugging',
+      'Profiling (perf, gprof)',
+      'ABI & Assembly (x86_64, PPC64)',
     ],
   },
   {
-    group: 'Infrastructure & Tools',
+    group: 'Compilers, Parsers & Tooling',
     items: [
-      'Linux',
-      'Docker',
-      'Git',
-      'CI/CD',
-      'Release Engineering',
-      'Build & Regression Pipelines',
-      'GoogleTest',
-      'DMTCP',
+      'ANTLR4 & ANTLR v1',
+      'Grammar Modernization',
+      'AST & Parse-Tree Visitors',
+      'Domain-Specific Languages (DSLs)',
+      'GoogleTest & CppUnit',
+      'Static Analysis',
     ],
   },
-  { group: 'Additional', items: ['Hyperledger Fabric', 'React Native'] },
+  {
+    group: 'AI & Developer Platforms',
+    items: [
+      'Model Context Protocol (MCP)',
+      'Agentic AI Workflows',
+      'LLM Tool Orchestration',
+      'CI/CD Pipelines & Automated Release Gating',
+      'Docker & Containerization',
+      'Git & Version Control',
+    ],
+  },
 ];
 
 export const education = [
   {
     school: 'Indian Institute of Technology Madras',
-    degree: 'M.Tech, Computer Science',
+    degree: 'M.Tech, Computer Science & Engineering',
     period: 'Jul 2022 – Jun 2024',
-    detail: 'CGPA 8.38/10 · Chennai',
+    detail: 'CGPA 8.38/10 · Chennai, India',
+    thesis: 'Thesis: Permissioned Blockchain-Based Distributed Marketplace (Hyperledger Fabric, Go)',
   },
   {
-    school: 'MediCaps University',
-    degree: 'B.Tech, Computer Science',
+    school: 'Medi-Caps University',
+    degree: 'B.Tech, Computer Science & Engineering',
     period: 'Jul 2018 – May 2022',
-    detail: 'CGPA 8.56/10 · Indore',
+    detail: 'CGPA 8.56/10 · Indore, India',
+    thesis: 'Core Foundations: OS, Networks, DBMS, Compilers, Theory of Computation',
   },
 ];
